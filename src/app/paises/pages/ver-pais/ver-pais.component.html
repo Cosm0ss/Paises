@@ -1,0 +1,38 @@
+<div *ngIf="!pais;else divPais" class="alert alert-info">
+    Cargando...
+</div>
+
+
+<ng-template #divPais class="">
+    <div class="row">
+        <div class="col-12">
+            <h1>Pais: <small>{{ pais[0].name.common }}</small></h1>
+        </div>
+    </div>
+
+    <div class="row animate__animated animate__fadeIn">
+        <div class="col-4">
+            <h3>Bandera</h3>
+            <img class="img-thumbnail" [src]="pais[0].flags[0]" alt="Bandera">
+        </div>
+        <div class="col">
+            <h3>Informacion</h3>
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Poblacion: </strong>{{ pais[0].population | number }}</li>
+                <li class="list-group-item"><strong>Nombre oficial: </strong>{{ pais[0].name.official }}</li>
+                
+            </ul>
+        </div>
+    </div>
+    <br>
+    <h3>Traducciones</h3>
+    <div class="row animate__animated animate__fadeIn">
+        <div class="col">
+            <span class="badge bg-primary mr-1">{{ pais[0].translations['ara'].official }}</span>
+            <span class="badge bg-primary mr-1">{{ pais[0].translations['ces'].official }}</span>
+            <span class="badge bg-primary mr-1">{{ pais[0].translations['fra'].official }}</span>
+            <span class="badge bg-primary mr-1">{{ pais[0].translations['jpn'].official }}</span>
+            <span class="badge bg-primary mr-1">{{ pais[0].translations['spa'].official }}</span>
+        </div>
+    </div>
+</ng-template>
